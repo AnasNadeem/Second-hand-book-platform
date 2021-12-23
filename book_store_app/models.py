@@ -9,7 +9,7 @@ class Book(models.Model):
     category = models.ForeignKey(Category, on_delete=models.DO_NOTHING)
     name = models.CharField(max_length=250)
     cash_price = models.IntegerField()
-    coin_price = models.IntegerField()
+    coin_price = models.IntegerField(blank=True)
     # image = models.ImageField()
 
 class BookDescription(models.Model):
@@ -20,3 +20,5 @@ class BookDescription(models.Model):
     published_date = models.DateField(blank=True)
     mass = models.IntegerField(blank=True)
     author_name = models.CharField(max_length=200, blank=True)
+
+    

@@ -12,6 +12,10 @@ class BookSerializer(ModelSerializer):
         fields = "__all__"
         model = Book
 
+    def to_representation(self, instance):
+        response = super().to_representation(instance)
+        response['category'] = CategorySerializer(instance.category).data
+        return response
 
 class BookDescriptionSerializer(ModelSerializer):
     class Meta:
